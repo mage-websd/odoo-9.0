@@ -61,6 +61,12 @@
         <field name="model">redmine.course</field>
         <field name="arch" type="xml">
             <form string="Course Form">
+              <header>
+                <button type="object"
+                name="open_commercial_entity"
+                string="Open commercial partner"
+                class="oe_highlight" />
+              </header>
                 <sheet>
                     <group>
                         <field name="name"/>

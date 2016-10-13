@@ -33,13 +33,29 @@
             </t>
         </template> -->
 
-        <template id="module_start.redmine_index" inherit_id="web.login_layout" name="Redmine 1">
+        <template id="module_start.redmine_layout" name="Redmine layout">
             <div>
-                <h3>121221</h3>
+                <t t-raw="before or ''"/>
                 <h1>giang soda</h1>
-                <h2>aaa</h2>
+                <t t-raw="after or ''"/>
+                <h2>kaka</h2>
+                <t t-raw="0"/>
             </div>
         </template>
+
+        <template id="module_start.redmine_index" name="Redmine 1" inherit_id="web.webclient_bootstrap">
+        </template>
+
+        <!-- <t t-extend="web.login_layout">
+                <h4>keke</h4>
+            </t> -->
+            <!-- <t t-set="head">
+                <link rel="stylesheet" href="/module_start/static/css/main.css" />
+            </t> -->
+
+            <!-- <xpath expr='//div[contains(@id, 'footer')]' position="inside">
+                <h3>GiangSoda</h3>
+            </xpath> -->
 
         <!-- <template id="web.login" name="Login">
             <t t-call="web.login_layout">

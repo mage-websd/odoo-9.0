@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
+
+        <template id="assets_backend" name="petstore_assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/module_start/static/src/js/redmine.js"/>
+            </xpath>
+        </template>
+
         <!-- window action -->
         <!--
             The following tag is an action definition for a "window action",
@@ -25,10 +32,29 @@
         <!-- the following menuitem should appear *after*
              its parent openacademy_menu and *after* its
              action course_list_action -->
-        <menuitem id="courses_menu" name="Project" parent="openacademy_menu"
+        <menuitem id="courses_menu" name="Custom object" parent="openacademy_menu"
                   action="course_list_action"/>
         <!-- Full id location:
              action="openacademy.course_list_action"
              It is not required when it is the same module -->
+
+        <!-- <act_window id="redmine_all_project"
+          name="All Project"
+          res_model="redmine.project"
+          view_mode="tree,form"
+          domain="[('redmine', '=', True)]"
+          context="{'default_redmine': True}"
+          limit="80" />
+
+        <menuitem id="redmine_all_project" name="Project List" parent="openacademy_menu"
+                  action="redmine_all_project"/> -->
+
+        <record id="redmine_project_list" model="ir.actions.client">
+            <field name="name">Project list</field>
+            <field name="tag">redmine.projectlist</field>
+        </record>
+
+        <menuitem id="redmine_project_list_menu" name="Project list" parent="openacademy_menu"  action="redmine_project_list"/>
+
     </data>
 </openerp>
