@@ -36,4 +36,8 @@
     'installable': True,
     'application': True,
     'auto_install': False,
+
+    'qweb': [
+        'static/src/xml/*.xml'
+    ],
 }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="RedmineProjectLayout">
+        <div class="oe_application view-list-redmine">
+            <div class="oe-control-panel">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 oe-cp-title">
+                            <ol class="oe-view-title breadcrumb">
+                                <li class="active"><t t-raw="dataTitlePage"/></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="oe-view-manager oe_view_manager_current">
+                <div class="oe-view-manager-content list-manager-content">
+                    <div class="oe-view-manager-view-list list-manager-view">
+                        <div class="oe_list o_list_view oe_view">
+                            <table class="oe_list_content">
+                                <thead>
+                                    <t t-raw="dataHead"/>
+                                </thead>
+                                <tbody>
+                                    <t t-raw="dataBody"/>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="RedmineProject">
+        <t t-call="RedmineProjectLayout">
+            <t t-set="dataTitlePage">Project</t>
+            <t t-set="dataHead">
+                <tr class="oe_list_header_columns">
+                    <th data-id="item" class="oe_list_header_char oe_sortable">
+                        <p>Id</p>
+                    </th>
+                    <th data-id="name" class="oe_list_header_char oe_sortable">
+                        <p>Name</p>
+                    </th>
+                    <th data-id="value" class="oe_list_header_char oe_sortable">
+                        <div>Created on</div>
+                    </th>
+                    <th data-id="value" class="oe_list_header_char oe_sortable">
+                        <div>status</div>
+                    </th>
+                    <th data-id="value" class="oe_list_header_char oe_sortable">
+                        <div>Issues total</div>
+                    </th>
+                    <th data-id="value" class="oe_list_header_char oe_sortable">
+                        <div>Issues open</div>
+                    </th>
+                    <th data-id="value" class="oe_list_header_char oe_sortable">
+                        <div>Issues closed</div>
+                    </th>
+                </tr>
+            </t>
+
+            <t t-set="dataBody">
+                <t t-foreach="data" t-as="item">
+                    <tr>
+                        <td><t t-esc="item.id"/></td>
+                        <td><t t-esc="item.name"/></td>
+                        <td><t t-esc="item.created_on"/></td>
+                        <td><t t-esc="item.status"/></td>
+                        <td><t t-esc="item.issue_count"/></td>
+                        <td><t t-esc="item.issue_count_open"/></td>
+                        <td><t t-esc="item.issue_count_closed"/></td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </t>
+</templates>

@@ -10,7 +10,28 @@ openerp.module_start = function(instance, local) {
 
     local.ProjectList = instance.web.Widget.extend({
         start: function() {
-            console.log("redmine loaded");
+            selfInstance = this;
+            jQuery.ajax({
+                type: "post",
+                url: '/web/redmine/project',
+                dataType: 'json',
+                async: true,
+                data: {
+                    'csrf_token': odooGlobalRkRedmine.token
+                },
+                success: function ( data ) {
+                    if (data.success != 1) {
+                        return false;
+                    }
+                    if (typeof data.data == 'undefined' || !data.data) {
+                        return false;
+                    }
+                    selfInstance.$el.append(QWeb.render("RedmineProject", {
+                        data: data.data,
+                    }));
+                },
+                failure: function( data ){}
+            });
         },
     });
 

@@ -4,7 +4,13 @@
 
         <template id="assets_backend" name="petstore_assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <script type="text/javascript" src="/module_start/static/src/js/redmine.js"/>
+              <link href="/module_start/static/src/less/redmine.less" rel="stylesheet" type="text/less" />
+              <script type="text/javascript">
+                var odooGlobalRkRedmine = {
+                  token: "<t t-esc="request.csrf_token(None)"/>"
+                }
+              </script>
+              <script type="text/javascript" src="/module_start/static/src/js/redmine.js"/>
             </xpath>
         </template>
 

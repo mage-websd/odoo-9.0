@@ -38,4 +38,6 @@ class RedmineProject(models.Model):
         ondelete='set null', string="Responsible", index=True)
     attendee_ids = fields.Many2one('res.partner', string="Attendees")
 
+
+### call object
 Course()
